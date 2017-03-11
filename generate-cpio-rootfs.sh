@@ -103,8 +103,14 @@ case $1 in
         echo "DRA7xx" > etc/hostname
         ;;
 
+    "imx6qdlsabresd")
+        echo "Building i.MX6 Sabre SD root filesystem"
+        cp etc/inittab-imx6qdlsabresd etc/inittab
+        echo "sabresd" > etc/hostname
+        ;;
+
     *)
-        echo "Usage: $0 [versatile|vexpress|fvp|rpi3|hikey|mt8173-evb|dra7xx]"
+        echo "Usage: $0 [versatile|vexpress|fvp|rpi3|hikey|mt8173-evb|dra7xx|imx6qdlsabresd]"
         exit 1
         ;;
 esac
@@ -281,6 +287,8 @@ case $1 in
     "mt8173-evb")
         ;;
     "dra7xx")
+        ;;
+    "imx6qdlsabresd")
         ;;
     *)
         echo "Forgot to update special per-platform rules."
